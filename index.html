@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CareConnect - Healthcare Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f7ff;
+      text-align: center;
+    }
+    header {
+      background: #2b7cff;
+      color: white;
+      padding: 15px;
+    }
+    section {
+      margin: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 90%;
+      padding: 8px;
+      margin: 6px 0;
+    }
+    button {
+      background: #2b7cff;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #chatbox {
+      background: white;
+      padding: 15px;
+      width: 320px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CareConnect</h1>
+  <p>Connecting Patients with Volunteers</p>
+</header>
+
+<section>
+  <h2>Patient Support Form</h2>
+  <form>
+    <input type="text" placeholder="Full Name" required><br>
+    <input type="text" placeholder="City" required><br>
+    <textarea placeholder="Describe your health issue" required></textarea><br>
+    <button type="submit">Request Help</button>
+  </form>
+</section>
+
+<section>
+  <h2>FAQ Chatbot</h2>
+  <div id="chatbox">
+    <input type="text" id="question" placeholder="Ask something...">
+    <button onclick="reply()">Ask</button>
+    <p id="answer"></p>
+  </div>
+</section>
+
+<script>
+function reply() {
+  let q = document.getElementById("question").value.toLowerCase();
+  let ans = "";
+
+  if (q.includes("help")) {
+    ans = "Fill the patient support form to request assistance.";
+  } 
+  else if (q.includes("volunteer")) {
+    ans = "Volunteer registration will be added soon.";
+  } 
+  else {
+    ans = "Our NGO team will contact you soon.";
+  }
+
+  document.getElementById("answer").innerText = ans;
+}
+</script>
+
+</body>
+</html>
